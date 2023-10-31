@@ -25,11 +25,41 @@ Store.prototype.hourData = function () {
   }
 };
 
+Store.prototype.render = function(){
+  let body = document.getElementById('stores');
+  let storeRow = document.createElement('tr');
+  body.appendChild(storeRow);
+
+  let nameCell = document.createElement('td');
+  nameCell.textContent = this.name;
+  storeRow.appendChild(nameCell);
+
+  for (let i =0; i < this.cookieSim.length; i++) {
+    let hourCell = document.createElement('td');
+    hourCell.textContent = this.cookieSim[i];
+    storeRow.appendChild(hourCell);
+  }
+}
+
 const seattle = new Store ('Seattle',23,65,6.3);
 const tokyo = new Store ('Tokyo',3,24,1.2);
 const dubai = new Store ('Dubai',11,38,3.7);
 const paris = new Store ('Paris',20,38,2.3);
 const lima = new Store ('Lima',2,16,4.6);
+
+seattle.hourData();
+// console.log(seattle);
+tokyo.hourData();
+dubai.hourData();
+paris.hourData();
+lima.hourData();
+
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
+
 
 
 
