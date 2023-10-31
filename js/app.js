@@ -42,9 +42,7 @@ for (let i = 0; i < seattle.cookieSim.length; i++)
 let totalCookie = document.createElement('li');
 totalCookie.textContent = `Total: ${cookieTotal} cookies`;
 seattleSpot.appendChild(totalCookie);
-
-
-console.log(seattleSpot);
+// console.log(seattleSpot);
 
 //
 //
@@ -71,6 +69,7 @@ const tokyo = {
 tokyo.hourData();
 
 let tokyoSpot = document.getElementsByClassName('tokyo')[0];
+let tokyoTotal = 0;
 for (let i = 0; i < tokyo.cookieSim.length; i++)
 {
   let listItem = document.createElement('li');
@@ -84,10 +83,13 @@ for (let i = 0; i < tokyo.cookieSim.length; i++)
     meridiem = 'pm';
   }
 
+  tokyoTotal += tokyo.cookieSim[i];
   listItem.textContent = `${hour} ${meridiem}: ${tokyo.cookieSim[i]} cookies`;
   tokyoSpot.appendChild(listItem);
 }
-console.log(seattleSpot);
+let totalTokyo = document.createElement('li');
+totalTokyo.textContent = `Total: ${tokyoTotal} cookies`;
+tokyoSpot.appendChild(totalTokyo);
 
 //
 //
