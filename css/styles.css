@@ -1,0 +1,38 @@
+header h1 {
+  background-color:#111111 ;
+  color: #fa8072;
+  font-family: righteous;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+}
+
+header nav {
+  background-color: #fa8072;
+
+}
+
+header .links ul {
+  list-style: none;
+  text-align: left;
+
+}
+
+header .links li {
+  display: inline;
+  margin-right: 25px;
+
+}
+
+header .links a {
+  color: black;
+}
+
+footer {
+  background-color: #cccccc;
+  bottom: 0;
+  color: #0a0a0a;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
