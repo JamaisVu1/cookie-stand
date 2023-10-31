@@ -1,6 +1,7 @@
-header {
+header h1 {
   background-color:#111111 ;
   color: #fa8072;
+  font-family: righteous;
   padding: 1em;
   position: relative;
   text-align: center;
