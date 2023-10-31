@@ -18,7 +18,7 @@ Store.prototype.getRandomCust = function () {
 
 Store.prototype.hourData = function () {
   this.totalSold = 0;
-  for (let hour = 6; hour <= 18; hour++) {
+  for (let hour = 6; hour <= 19; hour++) {
     this.randomCust.push(this.getRandomCust());
     this.cookieSim.push(Math.round(this.randomCust[hour - 6] * this.avgSale));
     this.totalSold += this.cookieSim[hour - 6];
@@ -39,7 +39,10 @@ Store.prototype.render = function(){
     hourCell.textContent = this.cookieSim[i];
     storeRow.appendChild(hourCell);
   }
-}
+
+};
+
+
 
 const seattle = new Store ('Seattle',23,65,6.3);
 const tokyo = new Store ('Tokyo',3,24,1.2);
@@ -61,7 +64,29 @@ paris.render();
 lima.render();
 
 
+function renderFooter(stores) {
+  let totalRow = document.getElementById('totals');
 
+  let headerRow = document.createElement('tr');
+  totalRow.appendChild(headerRow);
+
+  let headerCell = document.createElement('td');
+  headerCell.textContent = 'Totals:';
+  headerRow.appendChild(headerCell);
+
+  for (let i = 0; i < stores[0].cookieSim.length; i++) {
+    let totalSales = 0;
+
+    for (let x = 0; x < stores.length; x++) {
+      totalSales += stores[x].cookieSim[i];
+    }
+
+    let hourCell = document.createElement('td');
+    hourCell.textContent = totalSales;
+    headerRow.appendChild(hourCell);
+  }
+}
+renderFooter([seattle,tokyo,dubai,paris,lima]);
 
 
 // GPT was used to figure out how to populate an array
