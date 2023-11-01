@@ -16,6 +16,7 @@ Store.prototype.getRandomCust = function () {
   );
 };
 
+// gpt helped with for loop
 Store.prototype.hourData = function () {
   this.totalSold = 0;
   for (let hour = 6; hour <= 19; hour++) {
