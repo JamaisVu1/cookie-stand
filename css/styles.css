@@ -38,6 +38,30 @@ footer {
 }
 
 table {
-  width: 80vw;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #888787;
+  margin: 20px 0;
 
 }
+
+thead th {
+  background-color: #808080;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #333;
+}
+
+tfoot td {
+  background-color: #808080;
+
+
+}
+
