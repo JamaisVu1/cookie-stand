@@ -27,30 +27,30 @@ Store.prototype.hourData = function () {
 };
 
 Store.prototype.render = function () {
-  let body = document.getElementById("stores");
-  let storeRow = document.createElement("tr");
+  let body = document.getElementById('stores');
+  let storeRow = document.createElement('tr');
   body.appendChild(storeRow);
 
-  let nameCell = document.createElement("td");
+  let nameCell = document.createElement('td');
   nameCell.textContent = this.name;
   storeRow.appendChild(nameCell);
 
   for (let i = 0; i < this.cookieSim.length; i++) {
-    let hourCell = document.createElement("td");
+    let hourCell = document.createElement('td');
     hourCell.textContent = this.cookieSim[i];
     storeRow.appendChild(hourCell);
   }
 
-  let totalCell = document.createElement("td");
+  let totalCell = document.createElement('td');
   totalCell.textContent = this.totalSold;
   storeRow.appendChild(totalCell);
 };
 
-const seattle = new Store("Seattle", 23, 65, 6.3);
-const tokyo = new Store("Tokyo", 3, 24, 1.2);
-const dubai = new Store("Dubai", 11, 38, 3.7);
-const paris = new Store("Paris", 20, 38, 2.3);
-const lima = new Store("Lima", 2, 16, 4.6);
+const seattle = new Store('Seattle', 23, 65, 6.3);
+const tokyo = new Store('Tokyo', 3, 24, 1.2);
+const dubai = new Store('Dubai', 11, 38, 3.7);
+const paris = new Store('Paris', 20, 38, 2.3);
+const lima = new Store('Lima', 2, 16, 4.6);
 
 seattle.hourData();
 // console.log(seattle);
@@ -65,14 +65,46 @@ dubai.render();
 paris.render();
 lima.render();
 
+
+const totalRow = document.getElementById('totals');
+const grandTotalCell = document.createElement('td');
+grandTotalCell.textContent = 0;
+totalRow.appendChild(grandTotalCell);
+
+function addRowToTable(locationName, minCustomers, maxCustomers, avgCookie) {
+  const tableBody = document.getElementById('stores');
+  const row = document.createElement('tr');
+  tableBody.appendChild(row);
+
+  const store = new Store(locationName, minCustomers, maxCustomers, avgCookie);
+  store.hourData();
+  store.render();
+}
+
+document.getElementById('cookieAdder').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const locationName = document.getElementById('locationName').value;
+  const minCustomers = parseInt(document.getElementById('minCustomers').value);
+  const maxCustomers = parseInt(document.getElementById('maxCustomers').value);
+  const avgCookie = parseInt(document.getElementById('avgCookie').value);
+
+  addRowToTable(locationName, minCustomers, maxCustomers, avgCookie);
+
+  document.getElementById('locationName').value = '';
+  document.getElementById('minCustomers').value = '1';
+  document.getElementById('maxCustomers').value = '1';
+  document.getElementById('avgCookie').value = '1';
+});
+
+
+
 function renderFooter(stores) {
-  let totalRow = document.getElementById("totals");
+  let headerRow = document.createElement('tr');
+  totalRow.innerHTML = '';
 
-  let headerRow = document.createElement("tr");
-  totalRow.appendChild(headerRow);
-
-  let headerCell = document.createElement("td");
-  headerCell.textContent = "Totals:";
+  let headerCell = document.createElement('td');
+  headerCell.textContent = 'Totals:';
   headerRow.appendChild(headerCell);
 
   let grandTotal = 0;
@@ -84,18 +116,17 @@ function renderFooter(stores) {
       totalSales += stores[x].cookieSim[i];
     }
 
-    let hourCell = document.createElement("td");
+    let hourCell = document.createElement('td');
     hourCell.textContent = totalSales;
     headerRow.appendChild(hourCell);
     grandTotal += totalSales;
   }
 
-  let grandTotalCell = document.createElement('td');
   grandTotalCell.textContent = grandTotal;
   headerRow.appendChild(grandTotalCell);
+  totalRow.appendChild(headerRow);
 }
 renderFooter([seattle, tokyo, dubai, paris, lima]);
-
 
 
 
@@ -110,25 +141,25 @@ class StoreInfo {
   }
 
   render() {
-    let storesContainer = document.getElementById('storeInfo');
-    let storeBox = document.createElement('div');
-    storeBox.className = 'store';
-    storeBox.style.display = 'flex';
-    storeBox.style.flexDirection = 'column';
+    let storesContainer = document.getElementById("storeInfo");
+    let storeBox = document.createElement("div");
+    storeBox.className = "store";
+    storeBox.style.display = "flex";
+    storeBox.style.flexDirection = "column";
 
-    let nameHeader = document.createElement('h2');
+    let nameHeader = document.createElement("h2");
     nameHeader.textContent = this.city;
 
-    let ul = document.createElement('ul');
+    let ul = document.createElement("ul");
 
-    let hoursLi = document.createElement('li');
-    hoursLi.textContent = 'Hours: ' + this.hours;
+    let hoursLi = document.createElement("li");
+    hoursLi.textContent = "Hours: " + this.hours;
 
-    let locationLi = document.createElement('li');
-    locationLi.textContent = 'Location: ' + this.location;
+    let locationLi = document.createElement("li");
+    locationLi.textContent = "Location: " + this.location;
 
-    let phoneNumberLi = document.createElement('li');
-    phoneNumberLi.textContent = 'Phone: ' + this.phoneNumber;
+    let phoneNumberLi = document.createElement("li");
+    phoneNumberLi.textContent = "Phone: " + this.phoneNumber;
 
     ul.appendChild(hoursLi);
     ul.appendChild(locationLi);
@@ -141,24 +172,46 @@ class StoreInfo {
   }
 }
 
-const seattleInfo = new StoreInfo('Seattle', "6 AM - 7 PM", '600 4th Ave', '678-999-8212');
+const seattleInfo = new StoreInfo(
+  "Seattle",
+  "6 AM - 7 PM",
+  "600 4th Ave",
+  "678-999-8212"
+);
 
-const tokyoInfo = new StoreInfo('Tokyo', '6 AM - 7 PM', '1-7-1 Nagatacho, Chiyoda City', '678-999-8212');
+const tokyoInfo = new StoreInfo(
+  "Tokyo",
+  "6 AM - 7 PM",
+  "1-7-1 Nagatacho, Chiyoda City",
+  "678-999-8212"
+);
 
-const dubaiInfo = new StoreInfo('Dubai', '6 AM - 7 PM', '1 Sheikh Mohammed bin Rashid Blvd', '678-999-8212');
+const dubaiInfo = new StoreInfo(
+  "Dubai",
+  "6 AM - 7 PM",
+  "1 Sheikh Mohammed bin Rashid Blvd",
+  "678-999-8212"
+);
 
-const parisInfo = new StoreInfo('Paris', '6 AM - 7 PM', '55 Rue du Faubourg Saint-Honoré', '678-999-8212');
+const parisInfo = new StoreInfo(
+  "Paris",
+  "6 AM - 7 PM",
+  "55 Rue du Faubourg Saint-Honoré",
+  "678-999-8212"
+);
 
-const limaInfo = new StoreInfo('Lima', '6 AM - 7 PM', 'Jirón de la Unión 1000', '678-999-8212');
+const limaInfo = new StoreInfo(
+  "Lima",
+  "6 AM - 7 PM",
+  "Jirón de la Unión 1000",
+  "678-999-8212"
+);
 
 seattleInfo.render();
 tokyoInfo.render();
 dubaiInfo.render();
 parisInfo.render();
 limaInfo.render();
-
-
-
 
 // GPT was used to figure out how to populate an array
 // const seattle = {
