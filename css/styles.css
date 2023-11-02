@@ -1,5 +1,5 @@
 header h1 {
-  background-color:#111111 ;
+  background-color: #111111;
   color: #fa8072;
   font-family: righteous;
   padding: 1em;
@@ -9,21 +9,19 @@ header h1 {
 
 header nav {
   background-color: #fa8072;
-
 }
-
+img {
+display: block;
+margin: 0 auto;
+}
 header .links ul {
   list-style: none;
   text-align: left;
-
-
 }
 
 header .links li {
   display: inline;
   margin-right: 25px;
-
-
 }
 
 header .links a {
@@ -40,26 +38,11 @@ footer {
   width: 100%;
 }
 
-.stores {
-  display: flex;
-  flex-direction: column;
-
-}
-
-.store h2 {
-font-family: righteous;
-}
-
-
-
-
-
 table {
   border-collapse: collapse;
   width: 100%;
   border: 1px solid #888787;
   margin: 20px 0;
-
 }
 
 thead th {
@@ -78,7 +61,25 @@ td {
 
 tfoot td {
   background-color: #808080;
-
-
 }
 
+.store {
+  display: flex;
+flex-direction: column;
+margin-top: 10px;
+
+border: solid red 5px;
+}
+
+.store h2 {
+  font-family: righteous;
+  font-size: larger;
+}
+
+.store ul {
+  margin-left: 20px;
+}
+
+.store li {
+  padding: .2em;
+}

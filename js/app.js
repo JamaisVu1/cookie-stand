@@ -96,6 +96,70 @@ function renderFooter(stores) {
 }
 renderFooter([seattle, tokyo, dubai, paris, lima]);
 
+
+
+
+// constructs main page flex boxes/ gpt was consulted on implementing flex boxes into a constructor and identifying errors in code
+
+class StoreInfo {
+  constructor(city, hours, phoneNumber, location) {
+    this.city = city;
+    this.hours = hours;
+    this.location = location;
+    this.phoneNumber = phoneNumber;
+  }
+
+  render() {
+    let storesContainer = document.getElementById('storeInfo');
+    let storeBox = document.createElement('div');
+    storeBox.className = 'store';
+    storeBox.style.display = 'flex';
+    storeBox.style.flexDirection = 'column';
+
+    let nameHeader = document.createElement('h2');
+    nameHeader.textContent = this.city;
+
+    let ul = document.createElement('ul');
+
+    let hoursLi = document.createElement('li');
+    hoursLi.textContent = 'Hours: ' + this.hours;
+
+    let locationLi = document.createElement('li');
+    locationLi.textContent = 'Location: ' + this.location;
+
+    let phoneNumberLi = document.createElement('li');
+    phoneNumberLi.textContent = 'Phone: ' + this.phoneNumber;
+
+    ul.appendChild(hoursLi);
+    ul.appendChild(locationLi);
+    ul.appendChild(phoneNumberLi);
+
+    storeBox.appendChild(nameHeader);
+    storeBox.appendChild(ul);
+
+    storesContainer.appendChild(storeBox);
+  }
+}
+
+const seattleInfo = new StoreInfo('Seattle', "6 AM - 7 PM", '600 4th Ave', '678-999-8212');
+
+const tokyoInfo = new StoreInfo('Tokyo', '6 AM - 7 PM', '1-7-1 Nagatacho, Chiyoda City', '678-999-8212');
+
+const dubaiInfo = new StoreInfo('Dubai', '6 AM - 7 PM', '1 Sheikh Mohammed bin Rashid Blvd', '678-999-8212');
+
+const parisInfo = new StoreInfo('Paris', '6 AM - 7 PM', '55 Rue du Faubourg Saint-Honoré', '678-999-8212');
+
+const limaInfo = new StoreInfo('Lima', '6 AM - 7 PM', 'Jirón de la Unión 1000', '678-999-8212');
+
+seattleInfo.render();
+tokyoInfo.render();
+dubaiInfo.render();
+parisInfo.render();
+limaInfo.render();
+
+
+
+
 // GPT was used to figure out how to populate an array
 // const seattle = {
 //   name: 'Seattle',
