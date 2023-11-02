@@ -26,42 +26,13 @@
       <legend>Add a new store to the table!!!</legend>
 
       <input name='Location Name' id='locationName' placeholder='Location Name' required />
-      <select name='Minimum customers Per Hour' id='minCustomers' required>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-        <option value='7'>7</option>
-        <option value='8'>8</option>
-        <option value='9'>9</option>
-        <option value='10'>10</option>
-      </select>
-      <select name='Maximum Customers Per Hour' id='maxCustomers' required>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-        <option value='7'>7</option>
-        <option value='8'>8</option>
-        <option value='9'>9</option>
-        <option value='10'>10</option>
-      </select>
-      <select name='Average cookies per sale' id='avgCookie' required>
-        <option value='1'>1</option>
-        <option value='2'>2</option>
-        <option value='3'>3</option>
-        <option value='4'>4</option>
-        <option value='5'>5</option>
-        <option value='6'>6</option>
-        <option value='7'>7</option>
-        <option value='8'>8</option>
-        <option value='9'>9</option>
-        <option value='10'>10</option>
-      </select>
+
+      <input type="number" name='Minimum customers' id='minCustomers' required placeholder="Minimum Customers">
+
+      <input type="number" name='Maximum Customers' id='maxCustomers' required placeholder="Maximum Customers">
+
+      <input type="number" name='Average cookies' id='avgCookie' required placeholder="Average Cookies">
+
     </fieldset>
     <button type='submit' id='submitButton'>Click here to add!</button>
   </form>
