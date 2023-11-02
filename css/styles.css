@@ -16,16 +16,19 @@ header .links ul {
   list-style: none;
   text-align: left;
 
+
 }
 
 header .links li {
   display: inline;
   margin-right: 25px;
 
+
 }
 
 header .links a {
   color: black;
+  text-decoration: none;
 }
 
 footer {
@@ -36,6 +39,20 @@ footer {
   text-align: center;
   width: 100%;
 }
+
+.stores {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.store h2 {
+font-family: righteous;
+}
+
+
+
+
 
 table {
   border-collapse: collapse;
