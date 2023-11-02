@@ -26,30 +26,31 @@ Store.prototype.hourData = function () {
   }
 };
 
-Store.prototype.render = function(){
-  let body = document.getElementById('stores');
-  let storeRow = document.createElement('tr');
+Store.prototype.render = function () {
+  let body = document.getElementById("stores");
+  let storeRow = document.createElement("tr");
   body.appendChild(storeRow);
 
-  let nameCell = document.createElement('td');
+  let nameCell = document.createElement("td");
   nameCell.textContent = this.name;
   storeRow.appendChild(nameCell);
 
-  for (let i =0; i < this.cookieSim.length; i++) {
-    let hourCell = document.createElement('td');
+  for (let i = 0; i < this.cookieSim.length; i++) {
+    let hourCell = document.createElement("td");
     hourCell.textContent = this.cookieSim[i];
     storeRow.appendChild(hourCell);
   }
 
+  let totalCell = document.createElement("td");
+  totalCell.textContent = this.totalSold;
+  storeRow.appendChild(totalCell);
 };
 
-
-
-const seattle = new Store ('Seattle',23,65,6.3);
-const tokyo = new Store ('Tokyo',3,24,1.2);
-const dubai = new Store ('Dubai',11,38,3.7);
-const paris = new Store ('Paris',20,38,2.3);
-const lima = new Store ('Lima',2,16,4.6);
+const seattle = new Store("Seattle", 23, 65, 6.3);
+const tokyo = new Store("Tokyo", 3, 24, 1.2);
+const dubai = new Store("Dubai", 11, 38, 3.7);
+const paris = new Store("Paris", 20, 38, 2.3);
+const lima = new Store("Lima", 2, 16, 4.6);
 
 seattle.hourData();
 // console.log(seattle);
@@ -64,16 +65,17 @@ dubai.render();
 paris.render();
 lima.render();
 
-
 function renderFooter(stores) {
-  let totalRow = document.getElementById('totals');
+  let totalRow = document.getElementById("totals");
 
-  let headerRow = document.createElement('tr');
+  let headerRow = document.createElement("tr");
   totalRow.appendChild(headerRow);
 
-  let headerCell = document.createElement('td');
-  headerCell.textContent = 'Totals:';
+  let headerCell = document.createElement("td");
+  headerCell.textContent = "Totals:";
   headerRow.appendChild(headerCell);
+
+  let grandTotal = 0;
 
   for (let i = 0; i < stores[0].cookieSim.length; i++) {
     let totalSales = 0;
@@ -82,13 +84,17 @@ function renderFooter(stores) {
       totalSales += stores[x].cookieSim[i];
     }
 
-    let hourCell = document.createElement('td');
+    let hourCell = document.createElement("td");
     hourCell.textContent = totalSales;
     headerRow.appendChild(hourCell);
+    grandTotal += totalSales;
   }
-}
-renderFooter([seattle,tokyo,dubai,paris,lima]);
 
+  let grandTotalCell = document.createElement('td');
+  grandTotalCell.textContent = grandTotal;
+  headerRow.appendChild(grandTotalCell);
+}
+renderFooter([seattle, tokyo, dubai, paris, lima]);
 
 // GPT was used to figure out how to populate an array
 // const seattle = {
