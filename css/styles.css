@@ -1,7 +1,41 @@
+.container {
+  width: 100%;
+}
+
+#cookieAdder {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#cookieAdder fieldset {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+}
+
+
+#cookieAdder input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#cookieAdder label {
+  text-align: right;
+  font-size: 14px;
+/* border: solid red 5px; */
+}
+
+
 header h1 {
   background-color: #111111;
   color: #fa8072;
   font-family: righteous;
+  font-size: 30px;
   padding: 1em;
   position: relative;
   text-align: center;
@@ -10,10 +44,12 @@ header h1 {
 header nav {
   background-color: #fa8072;
 }
+
 img {
-display: block;
-margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
+
 header .links ul {
   list-style: none;
   text-align: left;
@@ -31,18 +67,23 @@ header .links a {
 
 footer {
   background-color: #cccccc;
-  bottom: 0;
   color: #0a0a0a;
-  position: absolute;
   text-align: center;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
+
+main {
+  padding-bottom: 20px;
+}
+
 
 table {
   border-collapse: collapse;
-  width: 100%;
   border: 1px solid #888787;
   margin: 20px 0;
+  width: 100%;
 }
 
 thead th {
@@ -51,24 +92,32 @@ thead th {
   font-weight: bold;
   text-align: center;
   padding: 10px;
+  width: 100%;
 }
 
 td {
+  border-collapse: collapse;
   text-align: center;
   padding: 5px;
   border: 1px solid #333;
 }
+tbody {
+  border-collapse: collapse;
+  background-color: #fa8072;
+  width: 100%;
+}
 
 tfoot td {
+  border-collapse: collapse;
   background-color: #808080;
+  color: #fff;
+  width: 100%;
 }
 
 .store {
   display: flex;
-flex-direction: column;
-margin-top: 10px;
-
-border: solid red 5px;
+  flex-direction: column;
+  margin-top: 10px;
 }
 
 .store h2 {
@@ -81,5 +130,5 @@ border: solid red 5px;
 }
 
 .store li {
-  padding: .2em;
+  padding: 0.2em;
 }

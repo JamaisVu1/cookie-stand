@@ -77,12 +77,13 @@ totalRow.appendChild(grandTotalCell);
 
 function addRowToTable(locationName, minCustomers, maxCustomers, avgCookie) {
   const tableBody = document.getElementById('stores');
-  const row = document.createElement('tr');
-  tableBody.appendChild(row);
-
   const store = new Store(locationName, minCustomers, maxCustomers, avgCookie);
   store.hourData();
   store.render();
+
+  const row = document.createElement('tr');
+  tableBody.appendChild(row);
+
   stores.push(store);
   renderFooter(stores);
 }
