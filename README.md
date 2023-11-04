@@ -2,7 +2,7 @@
 
 ## Cookie Stand
 
-A website dedicated to the tracking of cookie sales.
+A website dedicated to the tracking of cookie sales. Includes the ability to add your own store.
 
 ### Author: Zachary Moore
 
