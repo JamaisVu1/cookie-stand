@@ -3,6 +3,11 @@
 }
 
 #cookieAdder {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(239, 234, 233),
+    rgb(250, 128, 114)
+  );
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13,10 +18,6 @@
   border-left: 1px solid #888787;
   border-top: none;
 }
-#cookieAdder legend {
-  pos
-}
-
 
 #cookieAdder fieldset {
   display: flex;
@@ -25,7 +26,6 @@
   width: 100%;
   align-items: center;
 }
-
 
 #cookieAdder input {
   display: flex;
@@ -40,13 +40,11 @@
   height: 20px;
 }
 
-
 #cookieAdder label {
   text-align: right;
   font-size: 10px;
   font-weight: bolder;
 }
-
 
 header h1 {
   background-color: #111111;
@@ -64,8 +62,6 @@ header nav {
   justify-content: center;
   max-width: 100%;
 }
-
-
 
 header .links ul {
   list-style: none;
@@ -90,7 +86,7 @@ footer {
   text-align: center;
   width: 100%;
   position: relative;
-padding-top: 10px;
+  padding-top: 10px;
   bottom: 0;
 }
 
@@ -100,9 +96,7 @@ main {
   align-items: center;
 }
 
-
 table {
-  border-collapse: collapse;
   border: 1px solid #888787;
   margin: 3em;
   max-width: 100%;
@@ -163,6 +157,4 @@ tfoot td {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-
-
 }
